@@ -1,0 +1,28 @@
+group 'kz.lombard'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'scala'
+
+sourceCompatibility = 1.8
+
+ext {
+    groovy = "2.4.3"
+    scala = "2.11.7"
+    junit = "4.11"
+}
+
+repositories {
+    mavenCentral()
+}
+
+def groovy =   ["org.codehaus.groovy:groovy-all:${groovy}"]
+def scala  =   ["org.scala-lang:scala-library-all:${scala}"]
+def tests  =   ["junit:junit:${junit}"]
+
+dependencies {
+    compile scala, groovy
+
+    testCompile tests
+}
