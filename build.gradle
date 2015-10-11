@@ -20,9 +20,11 @@ repositories {
 def groovy =   ["org.codehaus.groovy:groovy-all:${groovy}"]
 def scala  =   ["org.scala-lang:scala-library-all:${scala}"]
 def tests  =   ["junit:junit:${junit}"]
+def mongo  =   ["org.mongodb:casbah_2.11:2.8.1"]
 
 dependencies {
     compile scala, groovy
+    compile mongo
 
     testCompile tests
 }
