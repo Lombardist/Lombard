@@ -44,8 +44,8 @@ object Address {
     if (obj==null) return null
     val value = obj.get("addressType").asInstanceOf[String]
     value match {
-      case "Home" => Home
-      case "Work" => Work
+      case Home.name => Home
+      case Work.name => Work
       case _ => Custom(value)
     }
   }

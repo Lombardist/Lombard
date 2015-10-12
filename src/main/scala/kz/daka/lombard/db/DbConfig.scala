@@ -17,7 +17,7 @@ trait DbConfig {
   def dbName: String
 
   val db = MongoClient(host,port)(dbName)
-  def collection(collection: String) = db getCollection collection
+  def collection(collection: String) = db(collection)
 
   val sequence = collection(Collections.sequence)
   val sessions = collection(Collections.sessions)
@@ -27,7 +27,7 @@ trait DbConfig {
 
   def nextId(collection: String) = sequence.findAndModify(MongoDBObject("_id" -> collection),
     null, null, false, MongoDBObject("$inc"-> MongoDBObject("seq"->1.toInt)), true, true)
-    .get("seq").asInstanceOf[Int]
+    .get.get("seq").asInstanceOf[Int]
 }
 
 object DefaultDbConfig extends DbConfig {
