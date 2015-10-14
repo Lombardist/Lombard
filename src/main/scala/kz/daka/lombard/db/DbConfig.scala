@@ -9,6 +9,8 @@ object Collections {
   val sequence = "sequence"
   val users = "users"
   val sessions = "sessions"
+  val itemTypes = "itemTypes"
+  val items = "items"
 }
 
 trait DbConfig {
@@ -24,6 +26,8 @@ trait DbConfig {
   val users = collection(Collections.users)
   val organizations = collection(Collections.organizations)
   val pawnshops = collection(Collections.pawnshops)
+  val itemTypes = collection(Collections.itemTypes)
+  val items = collection(Collections.items)
 
   def nextId(collection: String) = sequence.findAndModify(MongoDBObject("_id" -> collection),
     null, null, false, MongoDBObject("$inc"-> MongoDBObject("seq"->1.toInt)), true, true)

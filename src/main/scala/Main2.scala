@@ -1,5 +1,5 @@
 import kz.daka.lombard.db.DefaultDbConfig
-import kz.daka.lombard.entities.Organization
+import kz.daka.lombard.entities.organization.Organization
 
 object Main2 extends App {
 

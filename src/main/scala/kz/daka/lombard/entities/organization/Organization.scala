@@ -1,9 +1,8 @@
-package kz.daka.lombard.entities
+package kz.daka.lombard.entities.organization
 
 import com.mongodb.DBObject
 import com.mongodb.casbah.commons.MongoDBObject
 import kz.daka.lombard.entities.address.Address
-import org.bson.types.ObjectId
 
 case class Organization(id: Int, name: String, legalAddress: Address)
 

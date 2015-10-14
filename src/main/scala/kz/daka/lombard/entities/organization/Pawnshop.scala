@@ -1,4 +1,4 @@
-package kz.daka.lombard.entities
+package kz.daka.lombard.entities.organization
 
 import com.mongodb.DBObject
 import com.mongodb.casbah.commons.MongoDBObject

@@ -5,9 +5,6 @@ import com.mongodb.casbah.commons.MongoDBObject
 
 trait Role {
   def name: String
-  def toBson: DBObject = {
-    MongoDBObject("name" -> name)
-  }
 }
 object Administrator extends Role {
   val name = "Administrator"
@@ -18,6 +15,11 @@ object Moderator extends Role {
 case class CustomRole(val name: String) extends Role
 
 object Role {
+
+  def toBson(obj: Role): DBObject = {
+    MongoDBObject("name" -> obj.name)
+  }
+
   def fromBson(obj: DBObject): Role = {
     if (obj == null) return null
     val value = obj.get("name").asInstanceOf[String]

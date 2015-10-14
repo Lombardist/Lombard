@@ -14,9 +14,6 @@ case class User(_id: String,
                 gender: Gender) {
   var roles: List[Role] = List[Role]()
 
-  override def toString = {
-
-  }
 }
 
 object User {
@@ -27,7 +24,7 @@ object User {
     "lastName" -> obj.lastName,
     "email" -> obj.email,
     "gender" -> obj.gender.toBson,
-    "roles" -> obj.roles.map((role: Role) => role.toBson)
+    "roles" -> obj.roles.map((role: Role) => Role.toBson(role))
     )
   }
   def fromBson(obj: DBObject): User = {
