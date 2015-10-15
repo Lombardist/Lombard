@@ -15,10 +15,13 @@ object Collections {
 
 trait DbConfig {
   def host: String
+
   def port: Int
+
   def dbName: String
 
-  val db = MongoClient(host,port)(dbName)
+  val db = MongoClient(host, port)(dbName)
+
   def collection(collection: String) = db(collection)
 
   val sequence = collection(Collections.sequence)
@@ -30,12 +33,14 @@ trait DbConfig {
   val items = collection(Collections.items)
 
   def nextId(collection: String) = sequence.findAndModify(MongoDBObject("_id" -> collection),
-    null, null, false, MongoDBObject("$inc"-> MongoDBObject("seq"->1.toInt)), true, true)
+    null, null, false, MongoDBObject("$inc" -> MongoDBObject("seq" -> 1.toInt)), true, true)
     .get.get("seq").asInstanceOf[Int]
 }
 
 object DefaultDbConfig extends DbConfig {
   def host = "localhost"
+
   def port = 27017
+
   def dbName = "lombard"
 }

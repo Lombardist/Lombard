@@ -6,12 +6,15 @@ import com.mongodb.casbah.commons.MongoDBObject
 trait Role {
   def name: String
 }
+
 object Administrator extends Role {
   val name = "Administrator"
 }
+
 object Moderator extends Role {
   val name = "Moderator"
 }
+
 case class CustomRole(val name: String) extends Role
 
 object Role {

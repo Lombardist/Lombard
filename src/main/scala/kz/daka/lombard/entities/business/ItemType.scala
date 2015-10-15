@@ -7,18 +7,23 @@ trait ItemType {
 case object Gold extends ItemType {
   val name = "Gold"
 }
+
 case object Silver extends ItemType {
   val name = "Silver"
 }
+
 case object RealEstate extends ItemType {
   val name = "RealEstate"
 }
+
 case object MotorTransport extends ItemType {
   val name = "MotorTransport"
 }
+
 case object WhiteGoods extends ItemType {
   val name = "WhiteGoods"
 }
+
 case object Jewelry extends ItemType {
   val name = "Jewelry"
 }

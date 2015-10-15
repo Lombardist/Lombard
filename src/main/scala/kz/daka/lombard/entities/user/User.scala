@@ -19,21 +19,22 @@ case class User(_id: String,
 object User {
   def toBson(obj: User): DBObject = {
     MongoDBObject(
-    "_id" -> obj._id,
-    "firstName" -> obj.firstName,
-    "lastName" -> obj.lastName,
-    "email" -> obj.email,
-    "gender" -> obj.gender.toBson,
-    "roles" -> obj.roles.map((role: Role) => Role.toBson(role))
+      "_id" -> obj._id,
+      "firstName" -> obj.firstName,
+      "lastName" -> obj.lastName,
+      "email" -> obj.email,
+      "gender" -> obj.gender.toBson,
+      "roles" -> obj.roles.map((role: Role) => Role.toBson(role))
     )
   }
+
   def fromBson(obj: DBObject): User = {
     val user = User(
-    _id = obj.get("_id").asInstanceOf[String],
-    firstName = obj.get("firstName").asInstanceOf[String],
-    lastName = obj.get("lastName").asInstanceOf[String],
-    email = obj.get("email").asInstanceOf[String],
-    gender = Gender.fromBson(obj.get("gender").asInstanceOf[DBObject])
+      _id = obj.get("_id").asInstanceOf[String],
+      firstName = obj.get("firstName").asInstanceOf[String],
+      lastName = obj.get("lastName").asInstanceOf[String],
+      email = obj.get("email").asInstanceOf[String],
+      gender = Gender.fromBson(obj.get("gender").asInstanceOf[DBObject])
     )
     val roles = obj.get("roles").asInstanceOf[BasicDBList]
     val iter = roles.iterator()

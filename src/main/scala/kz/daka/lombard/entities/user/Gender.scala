@@ -5,16 +5,20 @@ import com.mongodb.casbah.commons.MongoDBObject
 
 trait Gender {
   def name: String
+
   def toBson: DBObject = {
     MongoDBObject("name" -> name)
   }
 }
+
 object Male extends Gender {
   val name = "Male"
 }
+
 object Female extends Gender {
   val name = "Female"
 }
+
 object Gender {
   def fromBson(obj: DBObject): Gender = {
     if (obj == null) return null

@@ -10,17 +10,17 @@ object Pawnshop {
 
   def toBson(obj: Pawnshop): DBObject = {
     MongoDBObject(
-    "_id" -> obj.id,
-    "name" -> obj.name,
-    "address" -> Address.toBson(obj.address)
+      "_id" -> obj.id,
+      "name" -> obj.name,
+      "address" -> Address.toBson(obj.address)
     )
   }
 
   def fromBson(obj: DBObject): Pawnshop = {
     Pawnshop(
-    id = obj.get("_id").asInstanceOf[Int],
-    name = obj.get("name").asInstanceOf[String],
-    address = Address.fromBson(obj.get("address").asInstanceOf[DBObject])
+      id = obj.get("_id").asInstanceOf[Int],
+      name = obj.get("name").asInstanceOf[String],
+      address = Address.fromBson(obj.get("address").asInstanceOf[DBObject])
     )
   }
 
