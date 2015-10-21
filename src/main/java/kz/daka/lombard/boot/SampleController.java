@@ -1,11 +1,6 @@
 package kz.daka.lombard.boot;
 
 import kz.daka.lombard.boot.entities.SomeObject;
-import kz.daka.lombard.db.DefaultDbConfig;
-import kz.daka.lombard.entities.address.Address;
-import kz.daka.lombard.entities.phone.Custom;
-import kz.daka.lombard.entities.phone.Home;
-import kz.daka.lombard.entities.phone.Phone;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;

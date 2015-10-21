@@ -1,9 +1,12 @@
 group 'kz.lombard'
 version '1.0-SNAPSHOT'
 
+apply plugin: 'application'
 apply plugin: 'java'
 apply plugin: 'groovy'
-apply plugin: 'scala'
+//apply plugin: 'scala'
+
+mainClassName = "kz.daka.lombard.boot.SampleController"
 
 sourceCompatibility = 1.8
 
@@ -17,6 +20,9 @@ repositories {
     mavenCentral()
 }
 
+sourceSets.main.java.srcDirs = []
+sourceSets.main.groovy.srcDirs += ["src/main/java"]
+
 def groovy = ["org.codehaus.groovy:groovy-all:${groovy}"]
 def scala = ["org.scala-lang:scala-library-all:${scala}"]
 def tests = ["junit:junit:${junit}"]
@@ -24,7 +30,7 @@ def mongo = ["org.mongodb:casbah_2.11:2.8.1"]
 def spring = ["org.springframework.boot:spring-boot-starter-web:1.2.7.RELEASE"]
 
 dependencies {
-    compile scala, groovy
+    compile groovy
     compile mongo
     compile spring
 
