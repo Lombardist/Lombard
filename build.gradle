@@ -27,7 +27,8 @@ def groovy = ["org.codehaus.groovy:groovy-all:${groovy}"]
 def scala = ["org.scala-lang:scala-library-all:${scala}"]
 def tests = ["junit:junit:${junit}"]
 def mongo = ["org.mongodb:casbah_2.11:2.8.1"]
-def spring = ["org.springframework.boot:spring-boot-starter-web:1.2.7.RELEASE"]
+def spring = ["org.springframework.boot:spring-boot-starter-web:1.2.7.RELEASE",
+                "org.springframework"]
 
 dependencies {
     compile groovy
