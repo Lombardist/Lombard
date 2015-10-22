@@ -28,7 +28,9 @@ def scala = ["org.scala-lang:scala-library-all:${scala}"]
 def tests = ["junit:junit:${junit}"]
 def mongo = ["org.mongodb:casbah_2.11:2.8.1"]
 def spring = ["org.springframework.boot:spring-boot-starter-web:1.2.7.RELEASE",
-                "org.springframework"]
+                "org.springframework.security:spring-security-web:4.0.2.RELEASE",
+                "org.springframework.security:spring-security-core:4.0.2.RELEASE",
+                "org.springframework.security:spring-security-config:4.0.2.RELEASE"]
 
 dependencies {
     compile groovy
