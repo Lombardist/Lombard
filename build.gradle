@@ -20,6 +20,23 @@ repositories {
     mavenCentral()
 }
 
+distributions {
+
+    main {
+        contents {
+            from {
+                'config'
+            }
+            from {
+                'src/main/resources'
+            }
+            into {
+                'lib'
+            }
+        }
+    }
+}
+
 sourceSets.main.java.srcDirs = []
 sourceSets.main.groovy.srcDirs += ["src/main/java"]
 
