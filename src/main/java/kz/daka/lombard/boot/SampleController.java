@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 @ComponentScan
 public class SampleController {
 
-    @RequestMapping("/")
-    @ResponseBody
+    //@RequestMapping("/")
+    //@ResponseBody
     public String home() {
         return "Hello World!";
     }
