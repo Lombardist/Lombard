@@ -20,39 +20,22 @@ repositories {
     mavenCentral()
 }
 
-distributions {
-
-    main {
-        contents {
-            from {
-                'config'
-            }
-            from {
-                'src/main/resources'
-            }
-            into {
-                'lib'
-            }
-        }
-    }
-}
-
 sourceSets.main.java.srcDirs = []
 sourceSets.main.groovy.srcDirs += ["src/main/java"]
 
 def groovy = ["org.codehaus.groovy:groovy-all:${groovy}"]
 def scala = ["org.scala-lang:scala-library-all:${scala}"]
-def tests = ["junit:junit:${junit}"]
-def mongo = ["org.mongodb:casbah_2.11:2.8.1"]
+def tests = ["junit:junit:${junit}", "org.springframework:spring-test:4.2.2.RELEASE"]
+def mongo_casbah = ["org.mongodb:casbah_2.11:2.8.1"]
+def mongo = ["org.mongodb:mongo-java-driver:3.1.0"]
 def spring = ["org.springframework.boot:spring-boot-starter-web:1.2.7.RELEASE",
                 "org.springframework.security:spring-security-web:4.0.2.RELEASE",
                 "org.springframework.security:spring-security-core:4.0.2.RELEASE",
                 "org.springframework.security:spring-security-config:4.0.2.RELEASE"]
+def spring_mongo = ["org.springframework.data:spring-data-mongodb:1.8.0.RELEASE"]
 
 dependencies {
-    compile groovy
-    compile mongo
-    compile spring
+    compile groovy, mongo, spring, spring_mongo
 
     testCompile tests
 }
